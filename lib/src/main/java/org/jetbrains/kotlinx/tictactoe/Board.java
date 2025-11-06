@@ -29,6 +29,13 @@ public class Board {
         grid[row][col]=mark;
     }
 
+    void removeMark(Position position){
+        int row=position.toRow();
+        int col=position.toColumn();
+
+        grid[row][col]=Mark.EMPTY;
+    }
+
     public Mark getMark(Position position){
         int row=position.toRow();
         int col=position.toColumn();
