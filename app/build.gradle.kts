@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    kotlin("jvm")
+    //kotlin("jvm")
     application
 }
 dependencies {
