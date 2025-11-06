@@ -1,7 +1,19 @@
 package org.jetbrains.kotlinx.tictactoe;
 
+/**
+ * Checks if there is a winner on a Tic-Tac-Toe board.
+ * Examines all possible winning conditions: three rows, three columns,
+ * and two diagonals.
+ */
 public class WinChecker {
 
+    /**
+     * Checks the board for a winner.
+     * Examines all rows, columns, and diagonals to see if any player
+     * has three marks in a line.
+     * @param board the board to check
+     * @return the winning mark (X or O), or EMPTY if there is no winner
+     */
     public Mark checkWinner(Board board) {
 
         Mark[][] grid= board.getGrid();

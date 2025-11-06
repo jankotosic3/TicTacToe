@@ -1,5 +1,10 @@
 package org.jetbrains.kotlinx.tictactoe;
 
+/**
+ * Main game controller for Tic-Tac-Toe.
+ * Manages the game loop, player turns, win checking, and game state.
+ * Orchestrates the interaction between players, board, and win checker.
+ */
 public class TicTacToeGame {
 
     private final Board board;
@@ -9,6 +14,12 @@ public class TicTacToeGame {
     private final WinChecker winChecker;
     private GameResult gameResult;
 
+    /**
+     * Creates a new Tic-Tac-Toe game with two players.
+     *
+     * @param playerX the player using X marks (goes first)
+     * @param playerO the player using O marks
+     */
     public TicTacToeGame(Player playerX, Player playerO) {
         this.board = new Board();
         this.playerX = playerX;
@@ -18,6 +29,11 @@ public class TicTacToeGame {
         this.gameResult=GameResult.inProgress();
     }
 
+    /**
+     * Starts and runs the game loop.
+     * Continues until the game ends in either a win or draw.
+     * Displays the board after each move and announces the result.
+     */
     public void play(){
         board.printBoard();
 
@@ -33,11 +49,14 @@ public class TicTacToeGame {
             }
         }
         if(gameResult.getResultType()==ResultType.WIN){
-            System.out.println("Congratulations!"+ gameResult.getWinner().getName()+"You win!");
+            System.out.println("Congratulations! "+ gameResult.getWinner().getName()+" You win!");
         }else System.out.println("Its a draw!");
 
     }
 
+    /**
+     * Switches the current player to the other player.
+     */
     private void switchPlayer(){
         if (currentPlayer == playerX) {
             currentPlayer = playerO;
@@ -46,6 +65,10 @@ public class TicTacToeGame {
         }
     }
 
+    /**
+     * Updates the game result based on the current board state.
+     * Checks for a winner or a draw (board full with no winner).
+     */
     private void updateGameResult(){
         Mark winnerMark=winChecker.checkWinner(board);
         if(winnerMark!=Mark.EMPTY){

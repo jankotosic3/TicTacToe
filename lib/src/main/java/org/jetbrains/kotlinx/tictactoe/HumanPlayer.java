@@ -2,15 +2,34 @@ package org.jetbrains.kotlinx.tictactoe;
 
 import java.util.Scanner;
 
+/**
+ * Represents a human player who makes moves via console input.
+ * Prompts the user to enter a number between 1-9 and validates the input.
+ */
 public class HumanPlayer extends Player {
 
     private final Scanner scanner;
 
+    /**
+     * Creates a new human player.
+     *
+     * @param name the player's name
+     * @param mark the player's mark (X or O)
+     */
     public HumanPlayer(String name, Mark mark) {
         super(name, mark);
         this.scanner = new Scanner(System.in);
     }
 
+    /**
+     * Prompts the human player to choose a move via console input.
+     * Validates that the input is a number between 1-9 and that the
+     * position is not already occupied. Continues prompting until
+     * a valid move is entered.
+     *
+     * @param board the current board state
+     * @return the position chosen by the player
+     */
     @Override
     public Position chooseMove(Board board) {
 
