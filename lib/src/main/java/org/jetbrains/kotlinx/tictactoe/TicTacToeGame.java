@@ -58,7 +58,7 @@ public class TicTacToeGame {
         }
 
         boolean boardFull=true;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 1; i <= 9; i++) {
             if(board.getMark(new Position(i))==Mark.EMPTY){
                 boardFull=false;
                 break;

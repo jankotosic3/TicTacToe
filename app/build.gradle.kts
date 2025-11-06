@@ -1,4 +1,5 @@
 plugins {
+    id("java")
     kotlin("jvm")
     application
 }
@@ -7,5 +8,11 @@ dependencies {
 }
 
 application {
-    mainClass = "org.jetbrains.kotlinx.tictactoe.MainKt"
+    mainClass.set( "org.jetbrains.kotlinx.tictactoe.Main")
+}
+
+java{
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(22))
+    }
 }
