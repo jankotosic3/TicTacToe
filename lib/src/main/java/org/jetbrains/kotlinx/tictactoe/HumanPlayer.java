@@ -35,7 +35,17 @@ public class HumanPlayer extends Player {
 
         System.out.println(getName()+"("+getMark()+"), enter your move 1-9: ");
         while (true) {
-            int move = Integer.parseInt(scanner.nextLine());
+
+            String input = scanner.nextLine();
+            int move;
+
+            try{
+                move=Integer.parseInt(input);
+            }catch(NumberFormatException e){
+                System.out.println("Invalid input. Please enter a number between 1 and 9.");
+                continue;
+            }
+
             if (move < 1 || move > 9) {
                 System.out.println("Invalid move. Enter a number between 1 and 9.");
                 continue;
